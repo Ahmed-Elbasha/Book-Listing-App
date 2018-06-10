@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="130dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/Content"
+        android:scaleType="centerCrop"
+        android:id="@+id/book_thumbnail_image_view"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Android"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:id="@+id/book_title_text_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Publish Date:"
+                android:textAppearance="?textAppearanceListItem"
+                android:layout_marginRight="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2014"
+                android:textAppearance="?textAppearanceListItem"
+                android:id="@+id/publish_date"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="P.K. Dixit"
+            android:layout_marginTop="8dp"
+            android:textAppearance="?textAppearanceListItem"
+            android:id="@+id/author_name_text_view"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Android is a movement that has transferred data from laptop to hand-held devices like mobiles. Though there are alternate technologies that compete with Android, but it is the front runner in mobile technology by a long distance. Good knowledge in basic Java will help you to understand and develop Android technology and apps. Many universities in India and across the world are now teaching Android in their syllabus, which shows the importance of this subject. This book can be read by anyone who knows Java and XML concepts. It includes a lot of diagrams along with explanations to facilitate better understanding by students. This book aptly concludes with a project that uses Android, which will greatly benefit students in learning the practical aspects of Android. Key Features • Instructions in designing different Android user interfaces • Thorough explanations of all activities • JSON • Android-based project to aid practical understanding"
+            android:textAppearance="?textAppearanceListItem"
+            android:maxLines="5"
+            android:ellipsize="end"
+            android:id="@+id/description_text_view"/>
+
+    </LinearLayout>
+
+</LinearLayout>
