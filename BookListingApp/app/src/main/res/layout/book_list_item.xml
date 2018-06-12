@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="130dp"
         android:layout_height="match_parent"
-        android:src="@drawable/Content"
+        android:src="@drawable/loader"
         android:scaleType="centerCrop"
         android:id="@+id/book_thumbnail_image_view"/>
 
