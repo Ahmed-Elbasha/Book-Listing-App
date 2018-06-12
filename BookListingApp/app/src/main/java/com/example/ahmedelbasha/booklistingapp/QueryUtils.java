@@ -1,6 +1,11 @@
 package com.example.ahmedelbasha.booklistingapp;
 
+import android.text.TextUtils;
 import android.util.Log;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,6 +15,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -99,7 +105,55 @@ public class QueryUtils {
         return stringOutput.toString();
     }
 
-    private static List<Book> extractItemsFromJsonResponse(String jsonResponse) {
-        return null;
+    private static List<Book> extractItemsFromJsonResponse(String bookJSON) {
+        if (TextUtils.isEmpty(bookJSON)) {
+            return null;
+        }
+
+        List<Book> books = new ArrayList<>();
+
+        try {
+            JSONObject rootJsonObject = new JSONObject(bookJSON);
+            JSONArray items = rootJsonObject.optJSONArray("items");
+
+            for (int i = 0; i < items.length(); i++) {
+                JSONObject item = items.optJSONObject(i);
+                JSONObject volumeInfo = item.optJSONObject("volumeInfo");
+
+                String bookTitle = volumeInfo.optString("title");
+
+                String listOfAuthors = "";
+
+                JSONArray authors = volumeInfo.optJSONArray("authors");
+
+                for (int j = 0; j < authors.length(); j++) {
+                    String author = authors.getString(j);
+                    int authorsMaxLength = 1 - authors.length();
+                    if (j == authorsMaxLength) {
+                        listOfAuthors += author + ".";
+                    } else {
+                        listOfAuthors += author + ", ";
+                    }
+                }
+
+                String description = volumeInfo.optString("description");
+
+                String publishDate = volumeInfo.optString("publishedDate");
+
+                JSONObject imageLinks = volumeInfo.optJSONObject("imageLinks");
+
+                String thumbnailLink = imageLinks.optString("thumbnail");
+
+                String previewLink = volumeInfo.optString("previewLink");
+
+                Book book = new Book(bookTitle, listOfAuthors, description, thumbnailLink, previewLink, publishDate);
+
+                books.add(book);
+            }
+        } catch (JSONException e) {
+            Log.e(LOG_TAG, "Problem parsing the earthquake JSON results", e);
+        }
+
+        return  books;
     }
 }

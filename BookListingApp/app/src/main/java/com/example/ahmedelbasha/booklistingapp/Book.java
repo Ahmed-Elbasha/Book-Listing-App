@@ -3,16 +3,16 @@ package com.example.ahmedelbasha.booklistingapp;
 public class Book {
 
     private String mBookTitle;
-    private String mAuthorName;
+    private String mAuthors;
     private String mDescription;
     private String mBookThumbnailLink;
     private String mPreviewLink;
     private String mPublishDate;
 
 
-    public Book(String bookTitle, String authorName, String description, String bookThumbnailLink, String previewLink, String publishDate) {
+    public Book(String bookTitle, String authors, String description, String bookThumbnailLink, String previewLink, String publishDate) {
         mBookTitle = bookTitle;
-        mAuthorName = authorName;
+        mAuthors = authors;
         mDescription = description;
         mBookThumbnailLink = bookThumbnailLink;
         mPreviewLink = previewLink;
@@ -23,8 +23,8 @@ public class Book {
         return mBookTitle;
     }
 
-    public String getAuthorName() {
-        return mAuthorName;
+    public String getAuthors() {
+        return mAuthors;
     }
 
     public String getDescription() {

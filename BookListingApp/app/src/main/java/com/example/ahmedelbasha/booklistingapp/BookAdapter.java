@@ -38,7 +38,7 @@ public class BookAdapter extends ArrayAdapter<Book> {
         publishDateTextView.setText(currentBook.getPublishDate());
 
         TextView authorNameTextView = listItem.findViewById(R.id.author_name_text_view);
-        authorNameTextView.setText(currentBook.getAuthorName());
+        authorNameTextView.setText(currentBook.getAuthors());
 
         TextView bookDescriptionTextView = listItem.findViewById(R.id.description_text_view);
         bookDescriptionTextView.setText(currentBook.getDescription());
