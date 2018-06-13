@@ -23,34 +23,33 @@ public class BookAdapter extends ArrayAdapter<Book> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View listItem = convertView;
 
-        if (listItem == null) {
-            listItem = LayoutInflater.from(getContext()).inflate(R.layout.book_list_item, parent);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.book_list_item, parent, false);
         }
 
         Book currentBook = getItem(position);
 
-        TextView bookTitleTextView = listItem.findViewById(R.id.book_title_text_view);
+        TextView bookTitleTextView = convertView.findViewById(R.id.book_title_text_view);
         bookTitleTextView.setText(currentBook.getBookTitle());
 
-        TextView publishDateTextView = listItem.findViewById(R.id.publish_date);
+        TextView publishDateTextView = convertView.findViewById(R.id.publish_date);
         publishDateTextView.setText(currentBook.getPublishDate());
 
-        TextView authorNameTextView = listItem.findViewById(R.id.author_name_text_view);
+        TextView authorNameTextView = convertView.findViewById(R.id.author_name_text_view);
         authorNameTextView.setText(currentBook.getAuthors());
 
-        TextView bookDescriptionTextView = listItem.findViewById(R.id.description_text_view);
+        TextView bookDescriptionTextView = convertView.findViewById(R.id.description_text_view);
         bookDescriptionTextView.setText(currentBook.getDescription());
 
         int loader = R.drawable.loader;
 
-        ImageView bookImage = listItem.findViewById(R.id.book_thumbnail_image_view);
+        ImageView bookImage = convertView.findViewById(R.id.book_thumbnail_image_view);
 
         String bookImageThumbnailUrl = currentBook.getBookThumbnailLink();
 
         Picasso.with(getContext()).load(bookImageThumbnailUrl).error(R.drawable.no_image).fit().centerCrop().into(bookImage);
 
-        return listItem;
+        return convertView;
     }
 }
