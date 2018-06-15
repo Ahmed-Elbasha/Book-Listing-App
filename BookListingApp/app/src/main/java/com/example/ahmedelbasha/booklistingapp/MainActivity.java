@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     private ProgressBar loadingIndicator;
     private static final int LOADER_ID = 0;
     EditText searchTextField;
+    public Context context = MainActivity.this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

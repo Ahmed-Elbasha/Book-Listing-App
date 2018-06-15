@@ -2,6 +2,7 @@ package com.example.ahmedelbasha.booklistingapp;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +35,7 @@ public class QueryUtils {
         try {
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making HTTP Request.", e );
+            Toast.makeText(new ShowToast(), "Invalid Keyword", Toast.LENGTH_SHORT);
         }
 
         List<Book> books = extractItemsFromJsonResponse(jsonResponse);
@@ -156,4 +157,6 @@ public class QueryUtils {
 
         return  books;
     }
+
 }
+
